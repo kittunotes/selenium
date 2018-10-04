@@ -1,0 +1,28 @@
+driver.findElement({xpath:'//*[@id="BatchGrid_ctl00_ctl04_EditLink"]'}).click();
+
+driver.findElement({xpath:'//*[@id="InvoiceNo"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="BillDt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="DueDt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="LockedDt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="BillStartDt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="BillEndDt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="DueAfterTotalAmt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="DueAfterDt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="RemainingAmt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="AdjustmentAmt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="LateAmt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="UnappliedCreditAmt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="TotalAmt"]'}).sendKeys();
+driver.findElement({xpath:'//*[@id="ReceivedDt"]'});
+
+
+driver.findElement({xpath:'//*[@id="PriorAmt"]'}).sendKeys('123');
+
+driver.findElement({xpath:'//*[@id="SaveButton"]'}).click();
+var succs =  driver.findElement({xpath:'//*[@id="HeaderErrorMessage"]'}).getText().then(function(text){
+    console.log(text);
+});
+if('Saved Successfully'==succs){
+    driver.close();
+    driver.quit();
+    }

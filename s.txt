@@ -1,0 +1,13 @@
+//browser.findElement(webdriver.By.className('saveRezAnon-5e9bb00068d29354')).click();
+//browser.wait
+//(until.elementTextIs
+    //(browser.findElement(webdriver.By.id('submit')),'save resume'),50000
+   // );
+//browser.findElement(webdriver.By.id('submit')).click();
+//browser.findElement(webdriver.By.id('saveRezAnon-5e9bb00068d29354')).click();
+
+//var ele = browser.findElement(webdriver.By.linkText('Advanced Search')).click();
+//ele.click();
+//console.log(ele);
+//browser.wait(findTutsPlusLink, 2000);
+//.then(clickLink).then(closeBrowser, handleFailure);
