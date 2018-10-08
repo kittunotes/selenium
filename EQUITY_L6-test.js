@@ -4,7 +4,7 @@ var http = require('http');
 var https = require('https');
 
 const result = excelToJson({
-    sourceFile: 'EQUITY_L6-test.xls',
+    sourceFile: 'EQUITY_L1-test.xls',
     header: {
         // Is the number of rows that will be skipped and will not be present at our result object. Counting from top to bottom
         rows: 1 // 2, 3, 4, etc.
@@ -163,7 +163,7 @@ function getMonthlyData(equity){
     try {
       const parsedData = JSON.parse(rawData);
       console.log(parsedData);
-      arrangeData(parsedData);
+      arrangeData(parsedData,c[1]);
     } catch (e) {
       console.error(e.message);
     }
@@ -177,7 +177,7 @@ function getMonthlyData(equity){
 }
 
 
-function arrangeData(parsedData){
+function arrangeData(parsedData,name){
             var p = parsedData['Monthly Time Series'];
             var temp =[];
             var finObj ;var mongoData;
@@ -235,11 +235,12 @@ console.log(d2);
 //mongoData.month_data = temp;
 
 //mongoData.symbol  =d2;
-
+console.log(name);
 mongoData = {
   "month_data": temp,
   "last_Refreshed": d1,
-  "symbol": d2
+  "symbol": d2,
+  "name":name
 }
 console.log('mongoData--------->'+JSON.stringify(mongoData));
 

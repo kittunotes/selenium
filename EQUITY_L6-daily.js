@@ -163,7 +163,7 @@ function getMonthlyData(equity){
     try {
       const parsedData = JSON.parse(rawData);
       console.log(parsedData);
-      arrangeData(parsedData);
+      arrangeData(parsedData,c[1]);
     } catch (e) {
       console.error(e.message);
     }
@@ -177,7 +177,7 @@ function getMonthlyData(equity){
 }
 
 
-function arrangeData(parsedData){
+function arrangeData(parsedData,name){
             var p = parsedData['Time Series (Daily)'];
             var temp =[];
             var finObj ;var mongoData;
@@ -240,6 +240,7 @@ mongoData = {
   "daily_data": temp,
   "last_Refreshed": d1,
   "symbol": d2,
+  "name":name
 }
 console.log('mongoData--------->'+JSON.stringify(mongoData));
 
